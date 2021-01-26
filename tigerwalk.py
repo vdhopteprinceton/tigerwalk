@@ -6,8 +6,8 @@ from CASClient import CASClient
 app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.secret_key = "tigerwalk key"
-
 db = SQLAlchemy(app)
+
 class users(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
     name = db.Column(db.String(150), nullable=False) 
