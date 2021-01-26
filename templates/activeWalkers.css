@@ -1,0 +1,23 @@
+body {
+    font-family: "Verdana", sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    color : #e77500;
+  }
+  
+  button {
+    background-color: #e77500;
+    border: none;
+    border-radius: 15px;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    font-family: "Verdana", sans-serif;
+    margin: 4px 2px;
+  }
