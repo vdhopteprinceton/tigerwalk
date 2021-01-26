@@ -28,8 +28,7 @@ def home():
     response = make_response(html)
     return response
 
-# @app.route('/seewalkers')
-@app.route('/')
+@app.route('/seewalkers')
 def activeWalkers():
     html = render_template('activeWalkers.html')
     response = make_response(html)
@@ -37,7 +36,13 @@ def activeWalkers():
 
 @app.route('/myprofile')
 def profile():
-    html = render_template('')
+    html = render_template('myProfile.html')
+    response = make_response(html)
+    return response
+
+@app.route('/map')
+def profile():
+    html = render_template('map.html')
     response = make_response(html)
     return response
 
