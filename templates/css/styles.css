@@ -4,15 +4,12 @@ body {
   margin-left: : 0;
 }
 
-button{
-  background-color: orange;
-  border-radius: 15px;
-  margin: 30px auto;
-  width: 25%;
-  height: 30px;
-}
 
 /******************* CLASS SELECTORS ***************/
+
+.btn {
+  margin:   50px 400px 50px 400px;
+}
 
 .landing-page {
   background-image: url(https://i.pinimg.com/originals/eb/97/ed/eb97ed1b613a59cb8b2db996d0fda2b5.gif);
@@ -32,6 +29,8 @@ button{
 .walk {
   color: orange;
 }
+
+
 
 
 
