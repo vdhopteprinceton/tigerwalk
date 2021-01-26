@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.secret_key = "tigerwalk key"
 db = SQLAlchemy(app)
 
-class users(db.Model):
+class user(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
     name = db.Column(db.String(150), nullable=False) 
     phone = db.Column(db.Integer, nullable=True)
@@ -17,7 +17,7 @@ class users(db.Model):
     profilepic = db.Column(db.Text(), nullable=True) 
 
     def __repr__(self):
-        return f"shoeListing('{self.name}', '{self.phone}', '{self.groupme}', '{self.facebook}')"
+        return f"user('{self.name}', '{self.phone}', '{self.groupme}', '{self.facebook}')"
 
 @app.route('/')
 def home():
@@ -37,7 +37,7 @@ def activeWalkers():
 
 @app.route('/myprofile')
 def profile():
-    html = render_template('activeWalkers.html')
+    html = render_template('')
     response = make_response(html)
     return response
 
