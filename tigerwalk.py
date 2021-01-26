@@ -41,7 +41,7 @@ def profile():
     return response
 
 @app.route('/map')
-def profile():
+def map():
     html = render_template('map.html')
     response = make_response(html)
     return response
