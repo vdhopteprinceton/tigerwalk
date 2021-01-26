@@ -1,0 +1,39 @@
+/******************* TAG SELECTORS ***************/
+
+body {
+  margin-left: : 0;
+}
+
+button{
+  background-color: orange;
+  border-radius: 15px;
+  margin: 30px auto;
+  width: 25%;
+  height: 30px;
+}
+
+/******************* CLASS SELECTORS ***************/
+
+.landing-page {
+  background-image: url(https://i.pinimg.com/originals/eb/97/ed/eb97ed1b613a59cb8b2db996d0fda2b5.gif);
+  background-size: 1000px;
+  height: 600px;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.title {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.walk {
+  color: orange;
+}
+
+
+
+
+/******************* ID SELECTORS ***************/
