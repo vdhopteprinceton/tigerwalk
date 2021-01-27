@@ -8,6 +8,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.secret_key = "tigerwalk key"
 db = SQLAlchemy(app)
 
+activeWalkers = []
+
 class user(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
     name = db.Column(db.String(150), nullable=False) 
