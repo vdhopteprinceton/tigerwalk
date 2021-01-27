@@ -142,15 +142,16 @@ def contactInfo():
     username = CASClient().authenticate()
     username = username.strip()
 
-    otherUsername = request.args.get("username");
-    otherUser = Users.query.filter_by(name = otherUsername).one();
+    otherUsername = request.args.get("username")
+    otherUser = Users.query.filter_by(name = otherUsername).one()
 
-    number = otherUser.phone;
-    facebook = otherUser.facebook;
-    groupme = otherUser.groupme;
-    profilepic = otherUser.profilepic;
+    name = otherUser.name
+    number = otherUser.phone
+    facebook = otherUser.facebook
+    groupme = otherUser.groupme
+    profilepic = otherUser.profilepic
 
-    html = render_template('contactInfo.html', number=number, facebook = facebook,  groupme = groupme, profilepic = profilepic)
+    html = render_template('contactInfo.html', name=name, number=number, facebook = facebook,  groupme = groupme, profilepic = profilepic)
     response = make_response(html)
     return response
 
