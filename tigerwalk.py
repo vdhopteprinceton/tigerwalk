@@ -63,7 +63,7 @@ def activeWalkers():
     username = CASClient().authenticate()
     username = username.strip()
 
-    html = render_template('activeWalkers.html', walkers=walkers)
+    html = render_template('activeWalkers.html', walkers=walkers, username=username)
     response = make_response(html)
     return response
 

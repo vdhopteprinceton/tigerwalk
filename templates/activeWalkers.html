@@ -20,9 +20,9 @@
                 <h1 style="text-align: center;">Active Walkers</h1>
                 <h5 style="text-align: center;">Reach out to an active walker or make yourself accessible!</h5>
 
-                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Add Me!</button>
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick="return add({{username}})">Add Me!</button>
                 <br>
-                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started/remove</button>
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started</button>
                 <br>
 
                 <div class="container">
@@ -37,6 +37,14 @@
                 </div>
             </div>
         </div>
+        <script>
+            'use strict';
+
+            function add(username){
+                console.log(username);
+
+            }
+        </script>
     </body>
 </html>
 
