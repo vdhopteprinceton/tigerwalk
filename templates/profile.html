@@ -20,13 +20,18 @@
                 
                 <a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
 
+                {% if profilepic == None %}
                 <img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg" 
                 style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
+                {% else %}
+                <img src="{{profilepic}}"
+                style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
+                {% endif %}
 
                 <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
                     <label for="profilepic" >Upload new profile picture</label>
                     <br>
-                    <input type="file" id="profilepic" oninput="return profilePic(value)" style="margin-left: 120px;">
+                    <input type="file"  accept="image/*" id="profilepic" oninput="return profilePic(value)" style="margin-left: 120px;">
                 </div>
 
                 <h1 style="text-align: center;">{{username}}</h1>
@@ -57,6 +62,9 @@
 
             function profilePic(image){
                 console.log(image);
+                // image = encodeURIComponent(image)
+                // url = "/myprofile?image=" + image;
+                // window.location.href = url
             }
 
         </script>

@@ -2,11 +2,31 @@ from flask import Flask
 from flask import render_template, make_response, request
 from flask_sqlalchemy import SQLAlchemy
 from CASClient import CASClient
+import cloudinary
+from cloudinary.uploader import upload
+from cloudinary.utils import cloudinary_url
 
 app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.secret_key = "tigerwalk key"
 db = SQLAlchemy(app)
+
+# for profile pics
+def imageToURL(image):
+    cloudinary.config(
+        cloud_name="vdhopte",
+        api_key="482853372222936",
+        api_secret="kMjjC-ooctqWxG2oE1Ym7u2AU84"
+    )
+
+    DEFAULT_TAG = "python_sample_basic"
+
+    response = upload(image, tags=DEFAULT_TAG)
+    url, options = cloudinary_url(
+        response['public_id'],
+        format=response['format'],
+    )
+    return url
 
 walkers = ["vedant", "justice", "theo", "christine", "theresa"]
 
@@ -44,7 +64,13 @@ def profile():
     username = CASClient().authenticate()
     username = username.strip()
 
-    html = render_template('profile.html', username=username)
+    profilepic = request.files.get('image')
+    print(profilepic)
+
+    if profilepic is not None:
+        profilepic = imageToURL(profilepic)
+
+    html = render_template('profile.html', username=username, profilepic=profilepic)
     response = make_response(html)
     return response
 
