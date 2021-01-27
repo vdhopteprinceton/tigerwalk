@@ -1,45 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<<<<<<< HEAD
-    <head>
-
-        <title>TigerWalk</title>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <script class = "button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script class = "button" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script class = "button" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    </head>
-
-    <body>
-
-        <img src="static/logo.jpg" height=35% width=35% style="display: block; margin-left: auto; margin-right: auto;">
-
-        <div class="container">
-            <div class="jumbotron" style="padding: 1%;" id="userUI">
-
-                <a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
-
-                {% if profilepic == None %}
-                <img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg"
-                style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
-                {% else %}
-                <img src="{{profilepic}}"
-                style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
-                {% endif %}
-
-                <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-                    <form method="POST" action="/myprofile" enctype="multipart/form-data">
-                        <label for="profilepic" >Upload new profile picture</label>
-                        <br>
-                        <input type="file" accept="image/*" name="profilepic" id="profilepic" style="margin-left: 120px;">
-                        <p><input type="submit" value="Submit"></p>
-                    </form>
-=======
 <head>
 
     <title>TigerWalk</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script class="button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -73,18 +38,9 @@
              style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
         {% endif %}
 
-        <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-            <form method="POST" action="/myprofile" enctype="multipart/form-data">
-                <label for="profilepic">Upload new profile picture</label>
-                <br>
-                <input type="file" accept="image/*" name="profilepic" id="profilepic" style="margin-left: 120px;">
-                <p><input type="submit" value="Submit"></p>
-            </form>
-        </div>
-
         <h1 style="text-align: center;">{{username}}</h1>
 
-        <form class="g-3 row-cols-lg-auto align-items-center">
+        <div class="container">
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IMessage_logo.svg/1200px-IMessage_logo.svg.png"
@@ -92,11 +48,9 @@
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Phone Number">
->>>>>>> a7a4478c966cd6ec891b163e81f7730c456f88a5
+                    <h3 style="font-weight:normal"> Phone Number Here </h3>
                 </div>
             </div>
-
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img
@@ -104,21 +58,19 @@
                             width=50 height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Facebook Messenger">
+                    <h3 style="font-weight:normal"> Messenger Link Here </h3>
                 </div>
             </div>
-
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img src="https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/GroupMe-512.png" width=50
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="GroupMe">
+                    <h3 style="font-weight:normal"> GroupMe Here </h3>
                 </div>
-
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -137,18 +89,8 @@
             function profilePic(profilepic){
                 // image = encodeURIComponent(image)
                 url = "/myprofile?profilepic=" + profilepic;
-                window.location.href = url;
+                window.location.href = url
             }
-
-
-
-
-
-
-
-
-
-
 
 
 
