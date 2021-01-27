@@ -33,7 +33,7 @@ def imageToURL(image):
 walkers = ['Theresa', 'Christine', 'Theo']
 
 #user database
-class User(db.Model):
+class Users(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True)
     name = db.Column(db.String(150), nullable=True)
     phone = db.Column(db.Integer, nullable=True)
@@ -50,9 +50,9 @@ def home():
     username = username.strip()
 
     try:
-        user = User.query.filter_by(username=username).one()
+        user = Users.query.filter_by(username=username).one()
     except:
-        user = User(username=username)
+        user = Users(username=username)
         db.session.add(user)
         db.session.commit()
 
@@ -68,19 +68,24 @@ def activeWalkers():
     addUser = request.args.get("name")
 
     if addUser is not None:
-        user = User.query.filter_by(username=username).one()
+        user = Users.query.filter_by(username=username).one()
         oldName = user.name
-        user.name = addUser
-        db.session.commit()
+        
+        if oldName != addUser:
+            user.name = addUser
+            db.session.commit()
 
-        walkers.append(addUser)
-        if oldName is not None:
-            if oldName in walkers:
-                walkers.remove(addUser)
+            walkers.append(addUser)
+            if oldName is not None:
+                if oldName in walkers:
+                    walkers.remove(oldName)
+        else:
+            if oldName not in walkers:
+                walkers.append(oldName)
 
     deleteUser = request.args.get("deleteUser")
     if deleteUser is not None:
-        user = User.query.filter_by(username=deleteUser).one()
+        user = Users.query.filter_by(username=deleteUser).one()
         name = user.name
 
         if name is not None:
