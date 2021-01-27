@@ -53,6 +53,8 @@ def home():
         user = User.query.filter_by(username=username).one()
     except:
         user = User(username=username)
+        db.session.add(user)
+        db.session.commit()
 
     html = render_template('home.html')
     response = make_response(html)
@@ -62,16 +64,28 @@ def home():
 def activeWalkers():
     username = CASClient().authenticate()
     username = username.strip()
-    addUser = request.args.get("addUser")
+
+    addUser = request.args.get("name")
+
     if addUser is not None:
-        if addUser not in walkers:
-            walkers.append(addUser)
+        user = User.query.filter_by(username=username).one()
+        oldName = user.name
+        user.name = addUser
+        db.session.commit()
+
+        walkers.append(addUser)
+        if oldName is not None:
+            if oldName in walkers:
+                walkers.remove(addUser)
 
     deleteUser = request.args.get("deleteUser")
-    if deleteUser in walkers:
-        walkers.remove(deleteUser)
+    if deleteUser is not None:
+        user = User.query.filter_by(username=deleteUser).one()
+        name = user.name
 
-
+        if name is not None:
+            if name in walkers:
+                walkers.remove(name)
 
     html = render_template('activeWalkers.html', walkers=walkers, username=username)
     response = make_response(html)
