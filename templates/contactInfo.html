@@ -4,6 +4,7 @@
 <head>
 
     <title>TigerWalk</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script class="button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -37,18 +38,9 @@
              style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
         {% endif %}
 
-        <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-            <form method="POST" action="/myprofile" enctype="multipart/form-data">
-                <label for="profilepic">Upload new profile picture</label>
-                <br>
-                <input type="file" accept="image/*" name="profilepic" id="profilepic" style="margin-left: 120px;">
-                <p><input type="submit" value="Submit"></p>
-            </form>
-        </div>
-
         <h1 style="text-align: center;">{{username}}</h1>
 
-        <form class="g-3 row-cols-lg-auto align-items-center">
+        <div class="container">
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IMessage_logo.svg/1200px-IMessage_logo.svg.png"
@@ -56,10 +48,9 @@
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Phone Number">
+                    <h3 style="font-weight:normal"> Phone Number Here </h3>
                 </div>
             </div>
-
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img
@@ -67,21 +58,19 @@
                             width=50 height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Facebook Messenger">
+                    <h3 style="font-weight:normal"> Messenger Link Here </h3>
                 </div>
             </div>
-
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img src="https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/GroupMe-512.png" width=50
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="GroupMe">
+                    <h3 style="font-weight:normal"> GroupMe Here </h3>
                 </div>
-
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -102,16 +91,6 @@
                 url = "/myprofile?profilepic=" + profilepic;
                 window.location.href = url
             }
-
-
-
-
-
-
-
-
-
-
 
 
 
