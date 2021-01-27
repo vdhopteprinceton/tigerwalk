@@ -1,47 +1,65 @@
-<a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-<img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg" 
-style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
+    <head>
 
-<div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-    <label for="profilepic" >Upload new profile picture</label>
-    <input type="file" style="margin: auto;" class="form-control-file" id="profilepic" oninput="return profilePic(value)">
-</div>
+        <title>TigerWalk</title>
 
-<h1 style="text-align: center;">{{username}}</h1>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <script class = "button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script class = "button" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script class = "button" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<table style="text-align: center;">
-  
-    <tr>
-        <td><img src="https://cdn.osxdaily.com/wp-content/uploads/2018/08/ios-messages-icon.jpg"
-                 width=100 height=100>
-        </td>
-        <td class>XXX-XXX-XXXX</td>
-    </tr>
-    <tr>
-        <td><img
-                src="https://facebookbrand.com/wp-content/uploads/2020/10/Logo_Messenger_NewBlurple-399x399-1.png?w=399&h=399"
-                width=100 height=100>
-        </td>
-        <td class><a href=google.com> Link Here </a></td>
-    </tr>
-    <tr>
-        <td><img
-                src="https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/GroupMe-512.png"
-                width=100 height=100>
-        </td>
-        <td class><a href=google.com> Link Here </a></td>
-    </tr>
-</table>
+    </head>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <body>
+        
+        <img src="static/logo.jpg" height=35% width=35% style="display: block; margin-left: auto; margin-right: auto;">
 
-<script>
+        <div class="container">
+            <div class="jumbotron" style="padding: 1%;" id="userUI">
+                
+                <a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
 
-    function profilePic(){
-        console.log("KHKKKJKHH");
-    }
+                <img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg" 
+                style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
 
-</script>
+                <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+                    <label for="profilepic" >Upload new profile picture</label>
+                    <br>
+                    <input type="file" id="profilepic" oninput="return profilePic(value)" style="margin-left: 120px;">
+                </div>
+
+                <h1 style="text-align: center;">{{username}}</h1>
+
+                <table style="text-align: center;">
+
+                    <tr>
+                        <td><img src="https://cdn.osxdaily.com/wp-content/uploads/2018/08/ios-messages-icon.jpg" width=100 height=100></td>
+                        <td class>XXX-XXX-XXXX</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://facebookbrand.com/wp-content/uploads/2020/10/Logo_Messenger_NewBlurple-399x399-1.png?w=399&h=399" width=100 height=100></td>
+                        <td class><a href=google.com> Link Here </a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/GroupMe-512.png" width=100 height=100></td>
+                        <td class><a href=google.com> Link Here </a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+
+            function profilePic(image){
+                console.log(image);
+            }
+
+        </script>
+
+    </body>
+</html>

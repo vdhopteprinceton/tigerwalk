@@ -1,20 +1,43 @@
-<a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        
+        <title>TigerWalk</title>
 
-<h1 style="text-align: center;">Active Walkers</h1>
-<h5 style="text-align: center;">Reach out to an active walker or make yourself accessible!</h5>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <script class = "button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script class = "button" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script class = "button" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
 
-<button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Add Me!</button>
-<br>
-<button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started/remove</button>
-<br>
+    <body>
+        
+        <img src="static/logo.jpg" height=35% width=35% style="display: block; margin-left: auto; margin-right: auto;">
 
-<div class="container">
-    <table class="table table-hover" style="text-align: center">
-        {% for walker in walkers %}
-        <tr>
-            <td>{{walker}}</td>
-            <td><button type="button" class="btn btn-primary">Contact</button></td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+        <div class="container">
+            <div class="jumbotron" style="padding: 1%;" id="userUI">
+                <a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
+
+                <h1 style="text-align: center;">Active Walkers</h1>
+                <h5 style="text-align: center;">Reach out to an active walker or make yourself accessible!</h5>
+
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Add Me!</button>
+                <br>
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started/remove</button>
+                <br>
+
+                <div class="container">
+                    <table class="table table-hover" style="text-align: center">
+                        {% for walker in walkers %}
+                        <tr>
+                            <td>{{walker}}</td>
+                            <td><button type="button" class="btn btn-primary">Contact</button></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+

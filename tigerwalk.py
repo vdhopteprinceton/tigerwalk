@@ -12,7 +12,7 @@ walkers = ["vedant", "justice", "theo", "christine", "theresa"]
 
 class user(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
-    name = db.Column(db.String(150), nullable=False) 
+    name = db.Column(db.String(150), nullable=True) 
     phone = db.Column(db.Integer, nullable=True)
     groupme = db.Column(db.String(150), nullable=True) 
     facebook = db.Column(db.String(150), nullable=True) 
