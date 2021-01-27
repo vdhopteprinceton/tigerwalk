@@ -41,8 +41,8 @@
                 </div>
 
                 <br>
-                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick = "return remove()">Remove Me</button>
-                <br>
+                <!-- <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick = "return remove()">Remove Me</button> -->
+                <!-- <br> -->
 
                 <div class="container">
                     <table class="table table-hover" style="text-align: center">
@@ -51,9 +51,15 @@
                             <div class="col-auto">
                                 {{walker}}
                             </div>
+                            
                             <div class="col-auto">
+                                {% if walker != myname %}
                                 <a href="/contactInfo?username={{walker}}"><button type="button" class="btn btn-dark">Contact</button></a>
+                                {% else %}
+                                <button type="button" class="btn btn-danger" style="display: block; margin-left: auto; margin-right: auto;" onclick = "return remove()">Remove</button>
+                                {% endif %}
                             </div>
+                            
                         </div>
 
 

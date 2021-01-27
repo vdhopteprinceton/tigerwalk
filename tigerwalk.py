@@ -79,11 +79,14 @@ def activeWalkers():
         db.session.commit()
 
     walkers = []
-
+    
+    myname = ""
     for user in Users.query.filter_by(active=True).all():
         walkers.append(user.name)
+        if user.username == username:
+            myname = user.name
 
-    html = render_template('activeWalkers.html', walkers=walkers, username=username)
+    html = render_template('activeWalkers.html', walkers=walkers, username=username, myname=myname)
     response = make_response(html)
     return response
 
