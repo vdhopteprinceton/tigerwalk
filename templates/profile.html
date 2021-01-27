@@ -27,11 +27,14 @@
                 <img src="{{profilepic}}"
                 style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
                 {% endif %}
-
+                
                 <div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
-                    <label for="profilepic" >Upload new profile picture</label>
-                    <br>
-                    <input type="file"  accept="image/*" id="profilepic" oninput="return profilePic(value)" style="margin-left: 120px;">
+                    <form method="POST" action="/myprofile" enctype="multipart/form-data">
+                        <label for="profilepic" >Upload new profile picture</label>
+                        <br>
+                        <input type="file" accept="image/*" name="profilepic" id="profilepic" style="margin-left: 120px;">
+                        <p><input type="submit" value="Submit"></p>
+                    </form>
                 </div>
 
                 <h1 style="text-align: center;">{{username}}</h1>
@@ -60,11 +63,10 @@
 
         <script>
 
-            function profilePic(image){
-                console.log(image);
+            function profilePic(profilepic){
                 // image = encodeURIComponent(image)
-                // url = "/myprofile?image=" + image;
-                // window.location.href = url
+                url = "/myprofile?profilepic=" + profilepic;
+                window.location.href = url
             }
 
         </script>

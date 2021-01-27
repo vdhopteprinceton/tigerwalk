@@ -13,6 +13,7 @@ db = SQLAlchemy(app)
 
 # for profile pics
 def imageToURL(image):
+    print("KJHKHKKH")
     cloudinary.config(
         cloud_name="vdhopte",
         api_key="482853372222936",
@@ -59,13 +60,12 @@ def activeWalkers():
     response = make_response(html)
     return response
 
-@app.route('/myprofile')
+@app.route('/myprofile', methods=['GET', 'POST'])
 def profile():
     username = CASClient().authenticate()
     username = username.strip()
 
-    profilepic = request.files.get('image')
-    print(profilepic)
+    profilepic = request.files.get('profilepic')
 
     if profilepic is not None:
         profilepic = imageToURL(profilepic)
