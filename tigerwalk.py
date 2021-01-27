@@ -71,7 +71,7 @@ def activeWalkers():
         user.name = addUser
         user.active = True
         db.session.commit()
-        
+
     deleteUser = request.args.get("deleteUser")
     if deleteUser is not None:
         user = Users.query.filter_by(username=deleteUser).one()
@@ -131,6 +131,23 @@ def map():
     username = username.strip()
 
     html = render_template('map.html')
+    response = make_response(html)
+    return response
+
+@app.route('/contactInfo')
+def contactInfo():
+    username = CASClient().authenticate()
+    username = username.strip()
+
+    otherUsername = request.args.get("username");
+    otherUser = Users.query.filter_by(name = otherUsername).one();
+
+    number = otherUser.phone;
+    facebook = otherUser.facebook;
+    groupme = otherUser.groupme;
+    profilepic = otherUser.profilepic;
+
+    html = render_template('contactInfo.html', number=number, facebook = facebook,  groupme = groupme, profilepic = profilepic)
     response = make_response(html)
     return response
 
