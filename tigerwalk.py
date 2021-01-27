@@ -29,9 +29,11 @@ def imageToURL(image):
     )
     return url
 
+#active walker list
 walkers = ["vedant", "justice", "theo", "christine", "theresa"]
 
-class user(db.Model):
+#user database
+class User(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
     name = db.Column(db.String(150), nullable=True) 
     phone = db.Column(db.Integer, nullable=True)
@@ -46,6 +48,11 @@ class user(db.Model):
 def home():
     username = CASClient().authenticate()
     username = username.strip()
+
+    try:
+        user = User.query.filter_by(username=username).one()
+    except:
+        user = User(username=username)
     
     html = render_template('home.html')
     response = make_response(html)
