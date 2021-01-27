@@ -1,6 +1,7 @@
 # TigerWalk
 
-Web application that helps create Princeton friendships in the COVID era through shared walks.
+TigerWalk is a web application that helps create Princeton
+friendships in the COVID era through shared walks. 
 
 
 
