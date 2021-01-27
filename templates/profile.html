@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Profile</title>
-    <link rel="stylesheet" href="profiles.css">
-</head>
-<body>
-<img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg"
-     style="width:200px;height:200px;"
-     class="center">
-<h1>
-    Username
-</h1>
+<a href="/"><button class="btn btn-secondary" onclick=""><strong>&lt</strong> Back</button></a>
 
-<table>
-    <tbody>
+<img src="https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg" 
+style="width:200px;height:200px; display: block; margin-left: auto; margin-right: auto;">
+
+<div class="container" style="text-align: center; display: block; margin-left: auto; margin-right: auto;">
+    <label for="profilepic" >Upload new profile picture</label>
+    <input type="file" style="margin: auto;" class="form-control-file" id="profilepic" oninput="return profilePic(value)">
+</div>
+
+<h1 style="text-align: center;">{{username}}</h1>
+
+<table style="text-align: center;">
+  
     <tr>
         <td><img src="https://cdn.osxdaily.com/wp-content/uploads/2018/08/ios-messages-icon.jpg"
                  width=100 height=100>
@@ -35,8 +32,16 @@
         </td>
         <td class><a href=google.com> Link Here </a></td>
     </tr>
-    </tbody>
 </table>
 
-</body>
-</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+
+    function profilePic(){
+        console.log("KHKKKJKHH");
+    }
+
+</script>

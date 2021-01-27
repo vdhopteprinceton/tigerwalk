@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.secret_key = "tigerwalk key"
 db = SQLAlchemy(app)
 
-activeWalkers = []
+walkers = ["vedant", "justice", "theo", "christine", "theresa"]
 
 class user(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True) 
@@ -32,18 +32,27 @@ def home():
 
 @app.route('/seewalkers')
 def activeWalkers():
-    html = render_template('activeWalkers.html')
+    username = CASClient().authenticate()
+    username = username.strip()
+
+    html = render_template('activeWalkers.html', walkers=walkers)
     response = make_response(html)
     return response
 
 @app.route('/myprofile')
 def profile():
-    html = render_template('myProfile.html')
+    username = CASClient().authenticate()
+    username = username.strip()
+
+    html = render_template('profile.html', username=username)
     response = make_response(html)
     return response
 
 @app.route('/map')
 def map():
+    username = CASClient().authenticate()
+    username = username.strip()
+
     html = render_template('map.html')
     response = make_response(html)
     return response

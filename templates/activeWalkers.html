@@ -6,6 +6,15 @@
 <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Add Me!</button>
 <br>
 <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started/remove</button>
-        
-<table class="table table-hover table-dark" style="text-align: center; overflow: scroll;" id="shoelist">
-</table>
+<br>
+
+<div class="container">
+    <table class="table table-hover" style="text-align: center">
+        {% for walker in walkers %}
+        <tr>
+            <td>{{walker}}</td>
+            <td><button type="button" class="btn btn-primary">Contact</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
