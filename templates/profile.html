@@ -54,7 +54,8 @@
 
         <h1 style="text-align: center;">{{username}}</h1>
 
-        <form class="g-3 row-cols-lg-auto align-items-center">
+        <form class="g-3 row-cols-lg-auto align-items-center" action="myprofile">
+
             <div class="row mb-3 justify-content-center">
                 <div class="col-auto">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IMessage_logo.svg/1200px-IMessage_logo.svg.png"
@@ -62,7 +63,11 @@
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Phone Number">
+                    {% if number != None %}
+                    <input type="text" name="number" value="{{number}}" class="form-control" placeholder="Phone Number">
+                    {% else %}
+                    <input type="text" name="number" class="form-control" placeholder="Phone Number">
+                    {% endif %}
                 </div>
             </div>
 
@@ -73,7 +78,11 @@
                             width=50 height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="Facebook Messenger">
+                    {% if facebook != None %}
+                    <input type="text" class="form-control" name="facebook" value="{{facebook}}" placeholder="Facebook Messenger">
+                    {% else %}
+                    <input type="text" class="form-control" name="facebook" placeholder="Facebook Messenger">
+                    {% endif %}
                 </div>
             </div>
 
@@ -84,9 +93,16 @@
                          height=50>
                 </div>
                 <div class="col-auto">
-                    <input type="text" class="form-control" placeholder="GroupMe">
+                    {% if groupme != None %}
+                    <input type="text" class="form-control" name="groupme" value="{{groupme}}" placeholder="GroupMe">
+                    {% else %}
+                    <input type="text" class="form-control" name="groupme" placeholder="GroupMe">
+                    {% endif %}
                 </div>
+            </div>
 
+            <div class="row mb-3 justify-content-center">
+                <input type="submit" class="btn btn-dark" value="Submit">
             </div>
         </form>
     </div>

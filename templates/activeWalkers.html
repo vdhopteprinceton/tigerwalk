@@ -12,11 +12,6 @@
             display: none;
             text-align: center;
             margin-top: 20px;
-            /* position: fixed;
-            bottom: 0;
-            right: 15px;
-            border: 3px solid #f1f1f1;
-            z-index: 9; */
           }
 
         </style>
@@ -52,10 +47,22 @@
                 <div class="container">
                     <table class="table table-hover" style="text-align: center">
                         {% for walker in walkers %}
+                        <div class="row mb-3 justify-content-center">
+                            <div class="col-auto">
+                                {{walker}}
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-dark">Contact</button>
+                            </div>
+                        </div>
+
+
+
+<!-- 
                         <tr>
                             <td>{{walker}}</td>
-                            <td><button type="button" class="btn btn-dark">Contact</button></td>
-                        </tr>
+                            <td></td>
+                        </tr> -->
                         {% endfor %}
                     </table>
                 </div>

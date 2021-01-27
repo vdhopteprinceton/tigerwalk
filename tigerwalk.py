@@ -29,9 +29,6 @@ def imageToURL(image):
     )
     return url
 
-#active walker list
-walkers = ['Theresa', 'Christine', 'Theo']
-
 #user database
 class Users(db.Model):
     username = db.Column(db.String(150), nullable=False, primary_key=True)
@@ -40,9 +37,11 @@ class Users(db.Model):
     groupme = db.Column(db.String(150), nullable=True)
     facebook = db.Column(db.String(150), nullable=True)
     profilepic = db.Column(db.Text(), nullable=True)
+    active = db.Column(db.Boolean(), nullable=False)
+
 
     def __repr__(self):
-        return f"user('{self.name}', '{self.phone}', '{self.groupme}', '{self.facebook}')"
+        return f"user('{self.name}', '{self.phone}', '{self.groupme}', '{self.facebook}', '{self.profilepic}')"
 
 @app.route('/')
 def home():
@@ -52,7 +51,7 @@ def home():
     try:
         user = Users.query.filter_by(username=username).one()
     except:
-        user = Users(username=username)
+        user = Users(username=username, active=False)
         db.session.add(user)
         db.session.commit()
 
@@ -69,28 +68,20 @@ def activeWalkers():
 
     if addUser is not None:
         user = Users.query.filter_by(username=username).one()
-        oldName = user.name
+        user.name = addUser
+        user.active = True
+        db.session.commit()
         
-        if oldName != addUser:
-            user.name = addUser
-            db.session.commit()
-
-            walkers.append(addUser)
-            if oldName is not None:
-                if oldName in walkers:
-                    walkers.remove(oldName)
-        else:
-            if oldName not in walkers:
-                walkers.append(oldName)
-
     deleteUser = request.args.get("deleteUser")
     if deleteUser is not None:
         user = Users.query.filter_by(username=deleteUser).one()
-        name = user.name
+        user.active = False
+        db.session.commit()
 
-        if name is not None:
-            if name in walkers:
-                walkers.remove(name)
+    walkers = []
+
+    for user in Users.query.filter_by(active=True).all():
+        walkers.append(user.name)
 
     html = render_template('activeWalkers.html', walkers=walkers, username=username)
     response = make_response(html)
@@ -112,9 +103,25 @@ def profile():
     user = Users.query.filter_by(username=username).one()
     profilepic = user.profilepic
 
-    print(profilepic)
+    number = request.args.get('number')
+    facebook = request.args.get('facebook')
+    groupme = request.args.get('groupme')
 
-    html = render_template('profile.html', username=username, profilepic=profilepic)
+    if number is not None:
+        user.phone = number
+        db.session.commit()
+    if facebook is not None:
+        user.facebook = facebook
+        db.session.commit()
+    if groupme is not None:
+        user.groupme = groupme
+        db.session.commit()
+
+    number = user.phone
+    facebook = user.facebook
+    groupme = user.groupme
+
+    html = render_template('profile.html', username=username, profilepic=profilepic, number=number, facebook=facebook, groupme=groupme)
     response = make_response(html)
     return response
 
