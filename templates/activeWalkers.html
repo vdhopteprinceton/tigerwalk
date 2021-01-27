@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        
+
         <title>TigerWalk</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <script class = "button" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        
+
         <img src="static/logo.jpg" height=35% width=35% style="display: block; margin-left: auto; margin-right: auto;">
 
         <div class="container">
@@ -20,9 +20,9 @@
                 <h1 style="text-align: center;">Active Walkers</h1>
                 <h5 style="text-align: center;">Reach out to an active walker or make yourself accessible!</h5>
 
-                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick="return add({{username}})">Add Me!</button>
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick= "return add()">Add Me!</button>
                 <br>
-                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;">Already started</button>
+                <button type="button" class="btn btn-warning" style="display: block; margin-left: auto; margin-right: auto;" onclick = "return remove()">Remove Me</button>
                 <br>
 
                 <div class="container">
@@ -30,7 +30,7 @@
                         {% for walker in walkers %}
                         <tr>
                             <td>{{walker}}</td>
-                            <td><button type="button" class="btn btn-primary">Contact</button></td>
+                            <td><button type="button" class="btn btn-dark">Contact</button></td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -40,12 +40,17 @@
         <script>
             'use strict';
 
-            function add(username){
-                console.log(username);
+            function add(){
+                var username = '{{username}}';
+                var url = "/seewalkers?addUser=" + username;
+                window.location.href = url;
+            }
 
+            function remove(){
+                var username = '{{username}}';
+                var url = "/seewalkers?deleteUser=" + username;
+                window.location.href = url;
             }
         </script>
     </body>
 </html>
-
-

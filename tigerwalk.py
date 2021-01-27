@@ -30,16 +30,16 @@ def imageToURL(image):
     return url
 
 #active walker list
-walkers = ["vedant", "justice", "theo", "christine", "theresa"]
+walkers = ['Theresa', 'Christine', 'Theo']
 
 #user database
 class User(db.Model):
-    username = db.Column(db.String(150), nullable=False, primary_key=True) 
-    name = db.Column(db.String(150), nullable=True) 
+    username = db.Column(db.String(150), nullable=False, primary_key=True)
+    name = db.Column(db.String(150), nullable=True)
     phone = db.Column(db.Integer, nullable=True)
-    groupme = db.Column(db.String(150), nullable=True) 
-    facebook = db.Column(db.String(150), nullable=True) 
-    profilepic = db.Column(db.Text(), nullable=True) 
+    groupme = db.Column(db.String(150), nullable=True)
+    facebook = db.Column(db.String(150), nullable=True)
+    profilepic = db.Column(db.Text(), nullable=True)
 
     def __repr__(self):
         return f"user('{self.name}', '{self.phone}', '{self.groupme}', '{self.facebook}')"
@@ -53,7 +53,7 @@ def home():
         user = User.query.filter_by(username=username).one()
     except:
         user = User(username=username)
-    
+
     html = render_template('home.html')
     response = make_response(html)
     return response
@@ -62,6 +62,16 @@ def home():
 def activeWalkers():
     username = CASClient().authenticate()
     username = username.strip()
+    addUser = request.args.get("addUser")
+    if addUser is not None:
+        if addUser not in walkers:
+            walkers.append(addUser)
+
+    deleteUser = request.args.get("deleteUser")
+    if deleteUser in walkers:
+        walkers.remove(deleteUser)
+
+
 
     html = render_template('activeWalkers.html', walkers=walkers, username=username)
     response = make_response(html)
