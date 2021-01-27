@@ -101,10 +101,18 @@ def profile():
     username = CASClient().authenticate()
     username = username.strip()
 
-    profilepic = request.files.get('profilepic')
+    newprofilepic = request.files.get('newprofilepic')
 
-    if profilepic is not None:
-        profilepic = imageToURL(profilepic)
+    if newprofilepic is not None:
+        newprofilepic = imageToURL(newprofilepic)
+        user = Users.query.filter_by(username=username).one()
+        user.profilepic = newprofilepic
+        db.session.commit()
+
+    user = Users.query.filter_by(username=username).one()
+    profilepic = user.profilepic
+
+    print(profilepic)
 
     html = render_template('profile.html', username=username, profilepic=profilepic)
     response = make_response(html)
