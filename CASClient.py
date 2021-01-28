@@ -20,7 +20,7 @@ class CASClient:
     # Initialize a new CASClient object so it uses the given CAS
     # server, or fed.princeton.edu if no server is given.
     
-    def __init__(self, url='https://fed.princeton.edu/cas/'):
+    def __init__(self, url='https://fed.princeton.edu/cas/login'):
         self.cas_url = url
 
     #-------------------------------------------------------------------
